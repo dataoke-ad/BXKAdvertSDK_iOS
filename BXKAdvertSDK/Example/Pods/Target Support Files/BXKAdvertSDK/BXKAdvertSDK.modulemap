@@ -1,0 +1,6 @@
+framework module BXKAdvertSDK {
+  umbrella header "BXKAdvertSDK-umbrella.h"
+
+  export *
+  module * { export * }
+}

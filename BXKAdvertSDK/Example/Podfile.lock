@@ -1,0 +1,59 @@
+PODS:
+  - AFNetworking (4.0.1):
+    - AFNetworking/NSURLSession (= 4.0.1)
+    - AFNetworking/Reachability (= 4.0.1)
+    - AFNetworking/Security (= 4.0.1)
+    - AFNetworking/Serialization (= 4.0.1)
+    - AFNetworking/UIKit (= 4.0.1)
+  - AFNetworking/NSURLSession (4.0.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (4.0.1)
+  - AFNetworking/Security (4.0.1)
+  - AFNetworking/Serialization (4.0.1)
+  - AFNetworking/UIKit (4.0.1):
+    - AFNetworking/NSURLSession
+  - BXKAdvertSDK (0.0.1):
+    - AFNetworking
+    - Masonry
+    - SDWebImage
+  - FBSnapshotTestCase (2.1.4):
+    - FBSnapshotTestCase/SwiftSupport (= 2.1.4)
+  - FBSnapshotTestCase/Core (2.1.4)
+  - FBSnapshotTestCase/SwiftSupport (2.1.4):
+    - FBSnapshotTestCase/Core
+  - Kiwi (3.0.0)
+  - Masonry (1.1.0)
+  - SDWebImage (5.7.3):
+    - SDWebImage/Core (= 5.7.3)
+  - SDWebImage/Core (5.7.3)
+
+DEPENDENCIES:
+  - BXKAdvertSDK (from `../`)
+  - FBSnapshotTestCase
+  - Kiwi
+
+SPEC REPOS:
+  trunk:
+    - AFNetworking
+    - FBSnapshotTestCase
+    - Kiwi
+    - Masonry
+    - SDWebImage
+
+EXTERNAL SOURCES:
+  BXKAdvertSDK:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AFNetworking: 7864c38297c79aaca1500c33288e429c3451fdce
+  BXKAdvertSDK: 349e9b801682c1d027e84df668e664adb7d277b4
+  FBSnapshotTestCase: 094f9f314decbabe373b87cc339bea235a63e07a
+  Kiwi: fbeafef0f00e4d8f7dcb3420a4930afe70af77f7
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  SDWebImage: 97351f6582ceca541ea294ba66a1fcb342a331c2
+
+PODFILE CHECKSUM: c7d5ca82c18b921c05839a2ee5b53c14011a6321
+
+COCOAPODS: 1.9.1

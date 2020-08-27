@@ -1,0 +1,38 @@
+{
+  "name": "BXKAdvertSDK",
+  "version": "0.0.1",
+  "summary": "A short description of BXKAdvertSDK.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://gitlab.haojiequ.com/dtkgroup/BXKAdvertSDK_iOS",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "chenweitao": "chenweitao@mail.dataoke.com"
+  },
+  "source": {
+    "git": "https://gitlab.haojiequ.com/dtkgroup/BXKAdvertSDK_iOS.git",
+    "tag": "0.0.1"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "BXKAdvertSDK/Classes/**/*",
+  "resource_bundles": {
+    "BXKAdvertSDK": [
+      "BXKAdvertSDK/Assets/*.png"
+    ]
+  },
+  "dependencies": {
+    "AFNetworking": [
+
+    ],
+    "Masonry": [
+
+    ],
+    "SDWebImage": [
+
+    ]
+  }
+}

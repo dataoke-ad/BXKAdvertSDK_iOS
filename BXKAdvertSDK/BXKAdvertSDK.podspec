@@ -30,10 +30,10 @@ TODO: Add long description of the pod here.
 
   s.ios.deployment_target = '10.0'
 
-  s.source_files = 'BXKAdvertSDK/Classes/**/*'
+  s.source_files = 'BXKAdvertSDK/BXKAdvertSDK/Classes/**/*'
   
    s.resource_bundles = {
-     'BXKAdvertSDK' => ['BXKAdvertSDK/Assets/*.png']
+     'BXKAdvertSDK' => ['BXKAdvertSDK/BXKAdvertSDK/Assets/*.png']
    }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'

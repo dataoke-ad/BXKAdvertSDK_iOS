@@ -85,7 +85,7 @@
 - (void)handlerResponse:(NSDictionary *)response error:(NSError *)error {
     NSInteger code = [response[@"code"] integerValue];
     NSString *msg = response[@"msg"];
-    if (code == 1) {
+    if (code == 200) {
         switch (self.type) {
             case BXKAdvertTypeStartupScreen:
                 [self handlerStartupScreen];

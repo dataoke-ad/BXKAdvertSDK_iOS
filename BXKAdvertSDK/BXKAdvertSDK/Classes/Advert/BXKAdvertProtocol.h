@@ -5,6 +5,7 @@
 //  Created by wit on 2020/8/25.
 //
 
+#import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import "BXKConst.h"
 

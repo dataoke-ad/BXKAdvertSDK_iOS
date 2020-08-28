@@ -13,6 +13,8 @@
 @interface BXKAdvertSDK : NSObject
 
 /// 注册SDK
-+ (void)registerWithKey:(NSString *)key appKey:(NSString *)appKey;
+/// @param key
+/// @param secret
++ (void)registerWithKey:(NSString *)key secret:(NSString *)secret;
 
 @end

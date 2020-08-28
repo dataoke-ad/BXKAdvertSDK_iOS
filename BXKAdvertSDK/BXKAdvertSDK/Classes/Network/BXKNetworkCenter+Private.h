@@ -5,11 +5,11 @@
 //  Created by wit on 2020/8/24.
 //
 
-#import <BXKAdvertSDK/BXKNetworkCenter.h>
+#import "BXKNetworkCenter.h"
 
 @interface BXKNetworkCenter ()
 
 @property (nonatomic, copy) NSString *key;
-@property (nonatomic, copy) NSString *appKey;
+@property (nonatomic, copy) NSString *secret;
 
 @end

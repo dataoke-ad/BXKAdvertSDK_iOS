@@ -14,9 +14,9 @@
 
 #pragma mark - Public
 
-+ (void)registerWithKey:(NSString *)key appKey:(NSString *)appKey {
++ (void)registerWithKey:(NSString *)key secret:(NSString *)secret {
     [BXKNetworkCenter sharedClient].key = key;
-    [BXKNetworkCenter sharedClient].appKey = appKey;
+    [BXKNetworkCenter sharedClient].secret = secret;
 }
 
 @end

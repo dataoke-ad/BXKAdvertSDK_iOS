@@ -12,7 +12,7 @@
 #import "BXKWebViewController.h"
 
 #define SDKKey     @"eebf41de"
-#define SDKAppKey @"6a4188fa009807a30b9dc4e0df3d2a05"
+#define SDKSecret @"6a4188fa009807a30b9dc4e0df3d2a05"
 
 @interface BXKViewController ()
 <BXKAdvertDelegate>
@@ -27,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [BXKAdvertSDK registerWithKey:SDKKey appKey:SDKAppKey];
+    [BXKAdvertSDK registerWithKey:SDKKey secret:SDKSecret];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

@@ -96,7 +96,7 @@ static NSString * const BXKNetAPIURLString = @"https://bxapi.dataoke.com/api/wap
         NSString *value = allParams[sortKey];
         [allParamsString appendFormat:@"%@=%@&", sortKey, value];
     }
-    [allParamsString appendFormat:@"key=%@", self.appKey];
+    [allParamsString appendFormat:@"key=%@", self.secret];
     
     NSString *sign = [BXKNetworkCenter md5:allParamsString];
     allParams[@"sign"] = sign;

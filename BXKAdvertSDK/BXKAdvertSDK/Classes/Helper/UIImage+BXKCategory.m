@@ -14,9 +14,15 @@
     if (img == nil) {
         img = [self imageNamed:[NSString stringWithFormat:@"Frameworks/BXKAdvertSDK.framework/BXKAdvertSDK.bundle/%@", name]];
     }
+    
+    if (img == nil) {
+        img = [self imageNamed:name];
+    }
+    
     if (img == nil) {
         return [self _bundleImageNamed:name];
     }
+    
     return img;
 }
 
@@ -27,6 +33,11 @@
     if (img == nil) {
         img = [self imageNamed:[NSString stringWithFormat:@"Frameworks/BXKAdvertSDK.framework/BXKAdvertSDK.bundle/%@", imageName]];
     }
+    
+    if (img == nil) {
+        img = [self imageNamed:imageName];
+    }
+    
     return img;
 }
 

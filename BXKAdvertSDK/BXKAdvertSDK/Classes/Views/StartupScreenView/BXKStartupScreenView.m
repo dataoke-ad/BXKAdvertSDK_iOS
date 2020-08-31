@@ -23,11 +23,19 @@
     if (self) {
         self.dictionary = dictionary;
         NSString *url = self.dictionary[@"data"][@"front_img"];
+        NSString *appLogo = self.dictionary[@"data"][@"appLogo"];
+
         NSDictionary *goods = self.dictionary[@"data"][@"list"][0];
         
         if ((![url isKindOfClass:[NSString class]] || url.length == 0) && goods.count == 0) {
             return nil;
         }
+        
+        [self.iconButton sd_setImageWithURL:[NSURL URLWithString:appLogo?:@""]
+                                   forState:UIControlStateNormal
+                                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL * imageURL) {
+            self.iconButton.hidden = image == nil;
+        }];
         
         if (goods.count > 0) {
             self.goods = [[BXKGoods alloc] initWithDictionary:goods];
@@ -74,6 +82,7 @@
     [self addSubview:self.couponView];
     [self addSubview:self.getCouponView];
     [self addSubview:self.logoImageView];
+    [self addSubview:self.iconButton];
     
     [self.adImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.right.equalTo(self);
@@ -115,6 +124,11 @@
         make.left.bottom.right.equalTo(self);
         make.height.mas_equalTo(100);
     }];
+    
+    [self.iconButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.trailing.mas_equalTo(0);
+        make.size.mas_equalTo(CGSizeMake(40, 40));
+    }];
 }
 
 #pragma mark - IBActions
@@ -122,6 +136,13 @@
 - (void)adImageViewDidTap:(UITapGestureRecognizer *)tap {
     if (self.click) {
         self.click([self landingLink]);
+    }
+}
+
+- (void)iconButtonDidClicked:(UIButton *)sender {
+    NSString *appLogoLinkUrl = self.dictionary[@"data"][@"appLogoLinkUrl"]?:@"http://bxk.dataoke.com/";
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:appLogoLinkUrl]]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appLogoLinkUrl] options:@{} completionHandler:nil];
     }
 }
 
@@ -206,6 +227,17 @@
         _logoImageView.image = [UIImage bundleImageNamed:@"bxk_launchLogo"];
     }
     return _logoImageView;
+}
+
+- (UIButton *)iconButton {
+    if (_iconButton == nil) {
+        _iconButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _iconButton.backgroundColor = [UIColor clearColor];
+        _iconButton.hidden = YES;
+        _iconButton.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+        [_iconButton addTarget:self action:@selector(iconButtonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _iconButton;
 }
 
 @end

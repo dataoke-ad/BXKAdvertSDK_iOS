@@ -15,6 +15,8 @@
     if (self) {
         self.image = dictionary[@"data"][@"front_img"];
         self.mallURL = dictionary[@"data"][@"mall_url"];
+        self.appLogo = dictionary[@"data"][@"appLogo"];
+        self.appLogoLinkUrl = dictionary[@"data"][@"appLogoLinkUrl"]?:@"http://bxk.dataoke.com/";
         self.dataType = [dictionary[@"data"][@"data_type"] integerValue];
         self.goods = [NSMutableArray new];
         NSArray *array = dictionary[@"data"][@"list"];

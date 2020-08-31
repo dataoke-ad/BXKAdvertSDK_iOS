@@ -15,6 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 // 活动类型使用
 @property (strong, nonatomic) UIImageView *imageView;
 
+@property (strong, nonatomic) UIButton *iconButton;
+
 // 商品类型使用
 @property (strong, nonatomic) UICollectionView *collectionView;
 

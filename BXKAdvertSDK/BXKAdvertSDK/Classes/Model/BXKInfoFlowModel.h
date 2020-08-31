@@ -13,6 +13,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 // 显示的图片url
 @property (strong, nonatomic) NSString *image;
+
+// 右下角图标地址
+@property (copy, nonatomic) NSString *appLogo;
+
+// 右上角图标跳转地址
+@property (copy, nonatomic) NSString *appLogoLinkUrl;
+
 // 店铺url
 @property (strong, nonatomic) NSString *mallURL;
 // 商品列表

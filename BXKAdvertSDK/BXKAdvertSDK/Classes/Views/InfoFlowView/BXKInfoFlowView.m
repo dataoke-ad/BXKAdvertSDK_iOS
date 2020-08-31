@@ -42,11 +42,31 @@
         }];
         [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.model.image]];
     }
+    
+    [self addSubview:self.iconButton];
+    [self.iconButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.trailing.mas_equalTo(0);
+        make.size.mas_equalTo(CGSizeMake(40, 40));
+    }];
+    
+    
+    [self.iconButton sd_setImageWithURL:[NSURL URLWithString:self.model.appLogo]
+                               forState:UIControlStateNormal
+                              completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL * imageURL) {
+        self.iconButton.hidden = image == nil;
+    }];
 }
 
 - (void)tapGestureHandle:(UIGestureRecognizer *)sender {
     if (self.click) {
         self.click(self.model.mallURL);
+    }
+}
+
+- (void)iconButtonDidClicked:(UIButton *)sender {
+    NSString *appLogoLinkUrl = self.model.appLogoLinkUrl;
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:appLogoLinkUrl]]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appLogoLinkUrl] options:@{} completionHandler:nil];
     }
 }
 
@@ -104,6 +124,18 @@
         _tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapGestureHandle:)];
     }
     return _tapGesture;
+}
+
+
+- (UIButton *)iconButton {
+    if (_iconButton == nil) {
+        _iconButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _iconButton.backgroundColor = [UIColor clearColor];
+        _iconButton.hidden = YES;
+        _iconButton.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+        [_iconButton addTarget:self action:@selector(iconButtonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _iconButton;
 }
 
 @end

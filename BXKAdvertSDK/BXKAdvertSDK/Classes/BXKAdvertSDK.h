@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import "BXKAdvertFactory.h"
 
-#define BXKAdvertSDKVersion @"0.0.1"
+#define BXKAdvertSDKVersion @"0.1.0"
 
 @interface BXKAdvertSDK : NSObject
 

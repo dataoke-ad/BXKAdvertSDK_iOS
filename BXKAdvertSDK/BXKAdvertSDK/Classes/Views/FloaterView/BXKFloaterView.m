@@ -15,6 +15,8 @@
 @property (nonatomic, strong) UIImageView *closeImage;
 @property (nonatomic, strong) NSDictionary *dictionary;
 
+@property (nonatomic, strong) UIButton  *iconButton;
+
 @end
 
 @implementation BXKFloaterView
@@ -31,6 +33,13 @@
         NSURL *imageURL = [NSURL URLWithString:imageURLStr];
         if (!imageURL) return nil;
         
+        NSString *appLogo = self.dictionary[@"data"][@"appLogo"];
+        [self.iconButton sd_setImageWithURL:[NSURL URLWithString:appLogo?:@""]
+                                   forState:UIControlStateNormal
+                                  completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL * imageURL) {
+            self.iconButton.hidden = image == nil;
+        }];
+        
         [self.imageView sd_setImageWithURL:imageURL];
         [self.imageView sd_setImageWithURL:imageURL completed:^(UIImage * _Nullable image, NSError * _Nullable error, SDImageCacheType cacheType, NSURL * _Nullable imageURL) {
             self.hidden = image == nil;
@@ -44,6 +53,7 @@
     
     [self addSubview:self.imageView];
     [self addSubview:self.closeImage];
+    [self addSubview:self.iconButton];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_onTap:)];
     [self addGestureRecognizer:tap];
@@ -55,6 +65,10 @@
     [self.closeImage mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(20, 20));
         make.top.right.equalTo(self);
+    }];
+    [self.iconButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.bottom.trailing.mas_equalTo(0);
+        make.size.mas_equalTo(CGSizeMake(40, 40));
     }];
 }
 
@@ -75,6 +89,13 @@
     }
 }
 
+- (void)iconButtonDidClicked:(UIButton *)sender {
+    NSString *appLogoLinkUrl = self.dictionary[@"data"][@"appLogoLinkUrl"]?:@"http://bxk.dataoke.com/";
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:appLogoLinkUrl]]) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:appLogoLinkUrl] options:@{} completionHandler:nil];
+    }
+}
+
 #pragma mark -  view
 
 - (UIImageView *)imageView {
@@ -90,6 +111,17 @@
         _closeImage = [[UIImageView alloc] initWithImage:image];
     }
     return _closeImage;
+}
+
+- (UIButton *)iconButton {
+    if (_iconButton == nil) {
+        _iconButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _iconButton.backgroundColor = [UIColor clearColor];
+        _iconButton.hidden = YES;
+        _iconButton.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+        [_iconButton addTarget:self action:@selector(iconButtonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _iconButton;
 }
 
 @end

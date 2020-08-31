@@ -10,8 +10,10 @@
 
 #if __has_include(<SDWebImage/UIImageView+WebCache.h>)
 #import <SDWebImage/UIImageView+WebCache.h>
+#import <SDWebImage/UIButton+WebCache.h>
 #else
 #import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
 #endif
 #if __has_include(<Masonry/Masonry.h>)
 #import <Masonry/Masonry.h>

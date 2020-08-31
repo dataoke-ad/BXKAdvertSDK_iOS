@@ -85,6 +85,8 @@ static NSString * const BXKNetAPIURLString = @"https://bxapi.dataoke.com/api/wap
     NSMutableDictionary *allParams = [NSMutableDictionary dictionary];
     allParams[@"appKey"] = self.key;
     allParams[@"client"] = @"wap";
+    allParams[@"version"] = @"2.0.0";
+    
     if (params.count > 0) {
         [allParams addEntriesFromDictionary:params];
     }

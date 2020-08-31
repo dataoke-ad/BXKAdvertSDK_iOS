@@ -15,6 +15,8 @@
 // 活动类型使使用
 @property (nonatomic, strong) UIImageView   *adImageView; // 广告大图
 
+@property (nonatomic, strong) UIButton   *iconButton;    // 右下角icon
+    
 // 商品类型时使用
 @property (nonatomic, strong) UIImageView   *goodsImageView;  //商品图
 @property (nonatomic, strong) UILabel       *goodsTitleLabel;   // 商品名

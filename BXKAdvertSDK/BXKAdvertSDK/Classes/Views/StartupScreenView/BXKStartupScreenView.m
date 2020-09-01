@@ -14,6 +14,8 @@
 @property (nonatomic, strong) NSDictionary *dictionary;
 @property (nonatomic, strong) BXKGoods  *goods;
 
+@property (nonatomic, strong) UIView *separatorLine;
+
 @end
 
 @implementation BXKStartupScreenView
@@ -74,15 +76,17 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(adImageViewDidTap:)];
     [self addGestureRecognizer:tap];
 
-    [self addSubview:self.adImageView];
     [self addSubview:self.goodsImageView];
     [self addSubview:self.goodsTitleLabel];
     [self addSubview:self.tag1View];
     [self addSubview:self.tag2View];
     [self addSubview:self.couponView];
     [self addSubview:self.getCouponView];
+    [self addSubview:self.separatorLine];
     [self addSubview:self.logoImageView];
     [self addSubview:self.iconButton];
+    
+    [self addSubview:self.adImageView];
     
     [self.adImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.right.equalTo(self);
@@ -91,18 +95,18 @@
     
     [self.goodsImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(self);
-        make.height.equalTo(self.adImageView.mas_width);
+        make.bottom.equalTo(self.goodsTitleLabel.mas_top).offset(10);
     }];
     
     [self.goodsTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(10);
         make.right.mas_lessThanOrEqualTo(-10);
-        make.top.equalTo(self.goodsImageView.mas_bottom).offset(10);
+        make.bottom.equalTo(self.tag1View.mas_top).offset(-10);
     }];
     
     [self.tag1View mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(10);
-        make.top.equalTo(self.goodsTitleLabel.mas_bottom).offset(10);
+        make.bottom.equalTo(self.couponView.mas_top).offset(-10);
     }];
     [self.tag2View mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.tag1View.mas_right).offset(5);
@@ -110,14 +114,20 @@
     }];
     [self.couponView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(10);
-        make.top.equalTo(self.tag2View.mas_bottom).offset(10);
+        make.bottom.equalTo(self.getCouponView.mas_top).offset(-14);
     }];
     
     [self.getCouponView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(10);
         make.right.mas_equalTo(-10);
-        make.top.equalTo(self.goodsImageView.mas_bottom).offset(99);
         make.height.mas_equalTo(80);
+        make.bottom.equalTo(self.separatorLine.mas_top).offset(-8);
+    }];
+    
+    [self.separatorLine mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.leading.trailing.equalTo(self);
+        make.bottom.equalTo(self.logoImageView.mas_top);
+        make.height.mas_equalTo(10);
     }];
     
     [self.logoImageView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -217,6 +227,14 @@
         _getCouponView = [[BXKGetCouponView alloc] init];
     }
     return _getCouponView;
+}
+
+- (UIView *)separatorLine {
+    if (_separatorLine == nil) {
+        _separatorLine = [[UIView alloc] init];
+        _separatorLine.backgroundColor = [UIColor colorWithRed:233/255.0 green:238/255.0 blue:244/255.0 alpha:1];
+    }
+    return _separatorLine;
 }
 
 - (UIImageView *)logoImageView {

@@ -43,7 +43,7 @@
     self.tagLabel.text = good.tag1;
     self.titleTextView.attributedText = good.attributedTitle;
     self.priceLabel.text = [[NSString stringWithFormat:@"%.2lf", good.jiage] clipZero];
-    self.couponLabel.text = [NSString stringWithFormat:@"%.2lf元券", good.quanJine];
+    self.couponLabel.text = [NSString stringWithFormat:@"%.0f元券", good.quanJine];
 }
 
 - (void)setupUI {

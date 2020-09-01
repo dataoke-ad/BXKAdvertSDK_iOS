@@ -23,7 +23,14 @@
         case BXKAdvertTypeStartupScreen: {
             [self.view addSubview:self.advert.view];
             [self.advert.view mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.edges.equalTo(self.view);
+                make.leading.trailing.equalTo(self.view);
+                if (@available(iOS 11.0, *)) {
+                    make.bottom.equalTo(self.view.mas_safeAreaLayoutGuideBottom);
+                    make.top.equalTo(self.view.mas_safeAreaLayoutGuideTop);
+                } else {
+                    make.top.equalTo(self.mas_topLayoutGuideBottom);
+                    make.bottom.equalTo(self.mas_bottomLayoutGuideTop);
+                }
             }];
             break;
         }

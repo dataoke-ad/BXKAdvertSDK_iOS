@@ -72,7 +72,7 @@
         case BXKAdvertTypeFloater: {
             CGFloat screenWidth = CGRectGetWidth(self.view.bounds);
             CGFloat screenHeight = CGRectGetHeight(self.view.bounds);
-            advert.view.frame = CGRectMake(screenWidth-114-20, screenHeight-200, 114, 114);
+            advert.view.frame = CGRectMake(screenWidth-114-20, screenHeight-300, 114, 114);
             [self.view addSubview:advert.view];
             break;
         }

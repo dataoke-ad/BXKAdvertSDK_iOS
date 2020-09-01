@@ -234,7 +234,7 @@
         _iconButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _iconButton.backgroundColor = [UIColor clearColor];
         _iconButton.hidden = YES;
-        _iconButton.imageEdgeInsets = UIEdgeInsetsMake(10, 10, 10, 10);
+        _iconButton.imageEdgeInsets = UIEdgeInsetsMake(20, 20, 0, 0);
         [_iconButton addTarget:self action:@selector(iconButtonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _iconButton;

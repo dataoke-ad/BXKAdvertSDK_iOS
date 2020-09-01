@@ -11,8 +11,8 @@
 #import "BXKTestViewController.h"
 #import "BXKWebViewController.h"
 
-#define SDKKey     @"eebf41de"
-#define SDKAppKey @"6a4188fa009807a30b9dc4e0df3d2a05"
+#define SDKKey     @"0df59c13"
+#define SDKAppKey @"4351e56096c6c4410bd3094bbc862b2e"
 
 @interface BXKViewController ()
 <BXKAdvertDelegate>

@@ -46,7 +46,7 @@
     [self addSubview:self.iconButton];
     [self.iconButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.trailing.mas_equalTo(0);
-        make.size.mas_equalTo(CGSizeMake(40, 40));
+        make.size.mas_equalTo(CGSizeMake(20, 20));
     }];
     
     
@@ -107,7 +107,7 @@
         UICollectionViewFlowLayout *layout = [UICollectionViewFlowLayout new];
         layout.sectionInset = UIEdgeInsetsMake(10, 10, 10, 10);
         layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-        layout.minimumLineSpacing = 2;
+        layout.minimumLineSpacing = 3;
         layout.itemSize = CGSizeMake(116, 190);
         _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
         _collectionView.backgroundColor = [UIColor clearColor];
@@ -132,7 +132,6 @@
         _iconButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _iconButton.backgroundColor = [UIColor clearColor];
         _iconButton.hidden = YES;
-        _iconButton.imageEdgeInsets = UIEdgeInsetsMake(20, 20, 0, 0);
         [_iconButton addTarget:self action:@selector(iconButtonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _iconButton;

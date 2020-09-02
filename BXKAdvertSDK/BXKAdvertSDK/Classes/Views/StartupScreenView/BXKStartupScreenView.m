@@ -95,7 +95,7 @@
     
     [self.goodsImageView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.top.equalTo(self);
-        make.bottom.equalTo(self.goodsTitleLabel.mas_top).offset(10);
+        make.bottom.equalTo(self.goodsTitleLabel.mas_top).offset(-10);
     }];
     
     [self.goodsTitleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -137,7 +137,7 @@
     
     [self.iconButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.trailing.mas_equalTo(0);
-        make.size.mas_equalTo(CGSizeMake(40, 40));
+        make.size.mas_equalTo(CGSizeMake(20, 20));
     }];
 }
 
@@ -252,7 +252,6 @@
         _iconButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _iconButton.backgroundColor = [UIColor clearColor];
         _iconButton.hidden = YES;
-        _iconButton.imageEdgeInsets = UIEdgeInsetsMake(20, 20, 0, 0);
         [_iconButton addTarget:self action:@selector(iconButtonDidClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _iconButton;

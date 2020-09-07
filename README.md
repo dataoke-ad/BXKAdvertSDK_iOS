@@ -18,11 +18,11 @@ end
 
 2. Xcode`File` —> `Add Files to "Your Project"`，在弹出Panel选中所下载组件包－>`Add`。（注：选中“Copy items if needed”）
 
-   ![image-20200828105206731](/Users/wit/Library/Application Support/typora-user-images/image-20200828105206731.png)
+   ![image-20200828105206731](https://raw.githubusercontent.com/dataoke-ad/BXKAdvertSDK_iOS/master/resources/1.png)
 
 3. 添加依赖库`SDWebImage` `Masonry` `AFNetworking`
 
-![image-20200828113155014](/Users/wit/Library/Application Support/typora-user-images/image-20200828113155014.png)
+![image-20200828113155014](https://raw.githubusercontent.com/dataoke-ad/BXKAdvertSDK_iOS/master/resources/2.png)
 
 
 
@@ -32,8 +32,8 @@ end
 
  ```objective-c
 /// **@param** key 你申请的key，必传
-/// **@param** appKey 你申请的appKey，必传
-+ (void)registerWithKey:(NSString *)key appKey:(NSString *)appKey;
+/// **@param** secret 你申请的secret，必传
++ (void)registerWithKey:(NSString *)key secret:(NSString *)secret;
  ```
 
 示例代码
@@ -42,7 +42,7 @@ end
 #import <BXKAdvertSDK/BXKAdvertSDK.h>
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [BXKAdvertSDK registerWithKey:@"你的key" appKey:@"你的appKey"];
+    [BXKAdvertSDK registerWithKey:@"你的key" secret:@"你的secret"];
 }
 ```
 
@@ -99,7 +99,7 @@ import "BXKViewController.h"
 #import "BXKWebViewController.h"
 
 #define SDKKey     @"eebf41de"
-#define SDKAppKey @"6a4188fa009807a30b9dc4e0df3d2a05"
+#define SDKSecret @"6a4188fa009807a30b9dc4e0df3d2a05"
 
 @interface BXKViewController ()
 <BXKAdvertDelegate>
@@ -156,7 +156,7 @@ import "BXKViewController.h"
 #import "BXKWebViewController.h"
 
 #define SDKKey     @"eebf41de"
-#define SDKAppKey @"6a4188fa009807a30b9dc4e0df3d2a05"
+#define SDKSecret @"6a4188fa009807a30b9dc4e0df3d2a05"
 
 @interface BXKViewController ()
 <BXKAdvertDelegate>
@@ -211,7 +211,7 @@ import "BXKViewController.h"
 #import "BXKWebViewController.h"
 
 #define SDKKey     @"eebf41de"
-#define SDKAppKey @"6a4188fa009807a30b9dc4e0df3d2a05"
+#define SDKSecret @"6a4188fa009807a30b9dc4e0df3d2a05"
 
 @interface BXKViewController ()
 <BXKAdvertDelegate>
@@ -266,7 +266,7 @@ import "BXKViewController.h"
 #import "BXKWebViewController.h"
 
 #define SDKKey     @"eebf41de"
-#define SDKAppKey @"6a4188fa009807a30b9dc4e0df3d2a05"
+#define SDKSecret @"6a4188fa009807a30b9dc4e0df3d2a05"
 
 @interface BXKViewController ()
 <BXKAdvertDelegate>
@@ -317,7 +317,7 @@ import "BXKViewController.h"
 #import "BXKWebViewController.h"
 
 #define SDKKey     @"eebf41de"
-#define SDKAppKey @"6a4188fa009807a30b9dc4e0df3d2a05"
+#define SDKSecret @"6a4188fa009807a30b9dc4e0df3d2a05"
 
 @interface BXKViewController ()
 <BXKAdvertDelegate>
@@ -366,9 +366,9 @@ import "BXKViewController.h"
 |  错误码  | 说明                 |
 | :------: | -------------------- |
 | 88004001 | 请带上认证信息       |
-| 88004002 | appkey不能为空       |
+| 88004002 | secret不能为空       |
 | 88004003 | 客户端信息不能为空   |
-| 88004004 | appkey信息错误       |
+| 88004004 | secret信息错误       |
 | 88004005 | sign不能为空         |
 | 88004006 | 签名错误             |
 | 88004007 | 认证失败             |

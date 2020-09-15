@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'BXKAdvertSDK'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'A short description of BXKAdvertSDK.'
 
 # This description is used to generate tags and improve search results.
@@ -33,7 +33,8 @@ TODO: Add long description of the pod here.
   s.source_files = 'BXKAdvertSDK/BXKAdvertSDK/Classes/**/*'
   
    s.resource_bundles = {
-     'BXKAdvertSDK' => ['BXKAdvertSDK/BXKAdvertSDK/Assets/*.png']
+     'BXKAdvertSDK' => ['BXKAdvertSDK/BXKAdvertSDK/Assets/*.png'],
+     'JDSDK' => ['BXKAdvertSDK/Frameworks/JDSDK.bundle']
    }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
@@ -41,5 +42,7 @@ TODO: Add long description of the pod here.
    s.dependency 'AFNetworking'
    s.dependency 'Masonry'
    s.dependency 'SDWebImage'
+
+   s.ios.vendored_frameworks = 'BXKAdvertSDK/Frameworks/JDSDK.framework'
    
 end

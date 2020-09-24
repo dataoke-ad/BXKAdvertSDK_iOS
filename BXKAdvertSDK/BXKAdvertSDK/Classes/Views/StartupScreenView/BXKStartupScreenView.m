@@ -27,8 +27,13 @@
         NSString *url = self.dictionary[@"data"][@"front_img"];
         NSString *appLogo = self.dictionary[@"data"][@"appLogo"];
 
-        NSDictionary *goods = self.dictionary[@"data"][@"list"][0];
-        
+        NSArray *list = self.dictionary[@"data"][@"list"];
+        NSDictionary *goods;
+
+        if ([list isKindOfClass: [NSArray class]] && list.count > 0) {
+            goods = list.firstObject;
+        }
+
         if ((![url isKindOfClass:[NSString class]] || url.length == 0) && goods.count == 0) {
             return nil;
         }
